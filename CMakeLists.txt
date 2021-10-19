@@ -1,5 +1,5 @@
 cmake_minimum_required( VERSION 3.7.0 )
-project( sdl2-demo )
+project( JeuSamouraiZombie )
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -28,4 +28,3 @@ else()
             SDL2-static
             )
 endif()
-

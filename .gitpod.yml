@@ -11,5 +11,5 @@ tasks:
     cd build &&
     cmake .. &&
     make &&
-    ./sdl2-demo
+    ./JeuSamouraiZombie
     cd ..
