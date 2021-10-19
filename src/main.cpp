@@ -2,6 +2,9 @@
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 
+/**
+ * Test
+ */
 int main() {
     SDL_SetMainReady(); // tell SDL that we handle main function ourselves, comes with the SDL_MAIN_HANDLED macro
     if (SDL_Init(SDL_INIT_VIDEO)) {
