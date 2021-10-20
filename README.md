@@ -7,6 +7,11 @@ cd JeuSamouraiZombie &&
 mkdir build &&
 cd build &&
 cmake .. &&
-cmake --build . -j &&
+make &&
 ./JeuSamouraiZombie
+```
+
+Si make ne fonctionne pas, essayez
+```sh
+cmake --build . -j 
 ```
