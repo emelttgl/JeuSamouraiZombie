@@ -1,10 +1,22 @@
 #include <iostream>
 #define SDL_MAIN_HANDLED
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 /**
- * Test
+ * Main function used to cycle the renderer
+ * author : Ssloy - Clément Oberhauser
  */
+
+void main_loop(SDL_Renderer *renderer){
+  while (1) { // main game loop
+      SDL_Event event; // handle window closing
+      if (SDL_PollEvent(&event) && (SDL_QUIT==event.type || (SDL_KEYDOWN==event.type && SDLK_ESCAPE==event.key.keysym.sym)))
+          break; // quit
+      SDL_RenderClear(renderer); // re-draw the window
+      SDL_RenderPresent(renderer);
+  }
+}
+
 int main() {
     SDL_SetMainReady(); // tell SDL that we handle main function ourselves, comes with the SDL_MAIN_HANDLED macro
     if (SDL_Init(SDL_INIT_VIDEO)) {
@@ -17,16 +29,10 @@ int main() {
         std::cerr << "Failed to create window and renderer: " << SDL_GetError() << std::endl;
         return -1;
     }
-    SDL_SetWindowTitle(window, "SDL2 game blank");
-    SDL_SetRenderDrawColor(renderer, 210, 255, 179, 255);
+    SDL_SetWindowTitle(window, "Samourai vs Zombies");
+    SDL_SetRenderDrawColor(renderer, 180, 167, 205, 255);
 
-    while (1) { // main game loop
-        SDL_Event event; // handle window closing
-        if (SDL_PollEvent(&event) && (SDL_QUIT==event.type || (SDL_KEYDOWN==event.type && SDLK_ESCAPE==event.key.keysym.sym)))
-            break; // quit
-        SDL_RenderClear(renderer); // re-draw the window
-        SDL_RenderPresent(renderer);
-    }
+    main_loop(renderer);
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
