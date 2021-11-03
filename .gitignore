@@ -1,2 +1,3 @@
 #Gitignore some file/folder
 build/
+*.swp
